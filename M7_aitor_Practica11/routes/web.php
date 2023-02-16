@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PrimerControlador;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hola', function () {
+    return view('Hola');
+}); */
+
+Route::get('/', [PrimerControlador::class, 'arrel']);
+Route::get('/hola/{persona?}', [PrimerControlador::class,'hola']);
+Route::get('/parametros/{param1?}/{param2?}/{param3?}', [PrimerControlador::class,'pruebaParametros']);
